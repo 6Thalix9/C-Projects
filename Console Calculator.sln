@@ -1,25 +1,47 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34728.123
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console Calculator", "Console Calculator\Console Calculator.csproj", "{58E1FD6C-85CE-48CC-95D3-1237F9CA33F3}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{58E1FD6C-85CE-48CC-95D3-1237F9CA33F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58E1FD6C-85CE-48CC-95D3-1237F9CA33F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58E1FD6C-85CE-48CC-95D3-1237F9CA33F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58E1FD6C-85CE-48CC-95D3-1237F9CA33F3}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
+Console.WriteLine("Le premier nombre est :");
+string number1 = Console.ReadLine();
+Console.WriteLine("Le deuxième nombre est :");
+string number2 = Console.ReadLine();
+Console.WriteLine("La méthode de calcul est :");
+string Method = Console.ReadLine();
+bool Condition = true;
+int result = 0;
+int a = int.Parse(number1);
+int b = int.Parse(number2);
+
+
+while(Condition == true)
+{
+    if (Method == "Addition")
+    {
+        result = a + b;
+        
+    }
+    if(Method == "Soustraction")
+    {
+        result = a - b;
+    }
+    if(Method == "Division")
+    {
+        result = a / b;
+    }
+    if(Method == "Multiplication")
+    {
+        result = a * b;
+    }
+    Console.WriteLine("Le résultat est:");
+    Console.WriteLine(result);
+    Console.WriteLine("Un nouveau calcul ?");
+    Condition = bool.Parse(Console.ReadLine());
+    Console.WriteLine("La nouvelle méthode de calcul est:");
+    Method = Console.ReadLine();
+    Console.WriteLine("Le nouveau nombre est:");
+    a = int.Parse(Console.ReadLine());
+    Console.WriteLine("Le deuxième nombre est:");
+    b = int.Parse(Console.ReadLine());
+
+}
 		SolutionGuid = {8492BD62-BA7B-41AE-BA69-6632A7EB5896}
 	EndGlobalSection
 EndGlobal
