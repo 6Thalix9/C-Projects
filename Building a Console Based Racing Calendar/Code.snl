@@ -1,0 +1,63 @@
+var raceList = new List<Race>();
+var race1 = new Race("JapanGP", "12 / 02 / 2024", "Suzuka", []);
+var race2 = new Race("ItaliaGP", "23 / 03 / 2024", "Monza", []);
+var race3 = new Race("FrenchGP", "14 / 03 / 2024", "Nice", []);
+
+raceList.Add(race1);
+raceList.Add(race2);
+raceList.Add(race3);
+
+var driver1 = new Driver("Lewis Hamilton");
+var driver2 = new Driver("Max Verstappen");
+var driver3 = new Driver("Sebastian Vettel");
+var driver4 = new Driver("Berkehan Koçak");
+
+race1.AddtoRace(driver4,race1);
+
+
+foreach (var race in raceList)
+{
+    Console.WriteLine($"The {race.Name} that occured on the {race.Date} was in the {race.TrackName} track");
+}
+
+
+
+class Race
+{
+    public Race(string name,string date, string trackname, List<Driver> gridcompo)
+    {
+        Name = name;
+        Date = date;
+        TrackName=trackname;
+
+        Gridcompo = gridcompo;
+
+    }
+
+    public void AddtoRace(Driver driver,Race race)
+    {
+        if (race.Gridcompo.Count < 21)
+        {
+            race.Gridcompo.Add(driver);
+            Console.WriteLine($"{driver.Name} has been added to the {race.Name} race");
+        }
+        else
+        {
+            Console.WriteLine("Sorry, The grid is full");
+        }
+    }
+
+    public string Name { get; set; }
+    public string Date { get; set; }
+    public string TrackName { get; set; }
+    public List<Driver> Gridcompo { get; set; }
+}
+
+class Driver
+{
+    public Driver(string name)
+    {
+        Name = name;
+    }
+    public string Name { get; set; }
+}
