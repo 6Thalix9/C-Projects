@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zar_Oyunu
+{
+    internal class Program
+    {
+        
+
+         static void Main(string[] args)
+        {
+            Random Random = new Random();
+            int RakipSayi = 0;
+            int BenimSayi = 0;
+            int rasgele;
+            int rasgeleRobot;
+            Console.WriteLine("Zar oyununa hoş geldiniz.");
+            for (int i = 0; i < 10; i++)
+            {
+                
+                Console.WriteLine("Zar atmak için bir tuşa basınız.");
+                Console.ReadLine();
+                rasgele = Random.Next(1,7);
+                Console.WriteLine($"Attığınız zarın değeri: {rasgele}.");
+                rasgeleRobot = Random.Next(1, 7);
+                Console.WriteLine("...");
+                Console.WriteLine($"Rakip {rasgeleRobot} attı.");
+                if (rasgele < rasgeleRobot)
+                {
+                    Console.WriteLine("Rakip kazandi.");
+                    RakipSayi++;
+                    Console.WriteLine($"Guncel durum:   Siz:{BenimSayi}   Rakip:{RakipSayi}");
+                }
+                if (rasgeleRobot < rasgele)
+                {
+                    Console.WriteLine("Siz kazandiniz.");
+                    BenimSayi++;
+                    Console.WriteLine($"Guncel durum:   Siz:{BenimSayi}   Rakip:{RakipSayi}");
+                }
+                if(rasgeleRobot == rasgele)
+                {
+                    Console.WriteLine("Berabere");
+                    Console.WriteLine($"Guncel durum:   Siz:{BenimSayi}   Rakip:{RakipSayi}");
+                }
+                Console.WriteLine("...");
+            }
+
+            if (BenimSayi > RakipSayi)
+            {
+                Console.WriteLine("Tebrikler, kazandınız!");
+            }
+            if (BenimSayi < RakipSayi)
+            {
+                Console.WriteLine("Üzgünüz, kaybettiniz.");
+            }
+            if (BenimSayi == RakipSayi)
+            {
+                Console.WriteLine("Berabere, tekrar deneyin!");
+            }
+            Console.WriteLine("Oyundan çıkmak için bir tuşa basın...");
+            Console.ReadLine();
+        }
+    }
+}
