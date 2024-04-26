@@ -1,0 +1,46 @@
+ using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sayi_Tahmin_Etme
+{
+    internal class Program
+    {
+       
+        
+        static void Main(string[] args)
+        {
+            Random rasgele = new Random();
+            Console.WriteLine("Sayi Thamin Etme Oyununa Hos Gelidiniz!");
+            Console.WriteLine("1 ve 10 arasinda bir sayi belirledik.");
+            Console.WriteLine("Bus sayiyi tahmin etmek icin 5 sansiniz var.");
+            Console.WriteLine("Baslamak icin ENTER basin");
+            Console.ReadLine();
+            int Sayi = rasgele.Next(1, 11); 
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Tahmininizi yapin.");
+                int a = Convert.ToInt32(Console.ReadLine());
+                if (a == Sayi)
+                {
+                    Console.WriteLine("Tebrikler, kazandiniz");
+                    break;
+                }
+                if (a < Sayi)
+                {
+                    Console.WriteLine("Maalesef yanlis. Sayi daha buyuk!!");
+
+                }
+                if (a > Sayi)
+                {
+                    Console.WriteLine("Maalesef yanlis. Sayi daha kucuk!!");
+
+                }
+            }
+            Console.WriteLine("Bitirmek icin ENTER basin.");
+            Console.ReadLine();
+        }
+    }
+}
