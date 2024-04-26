@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sira_Bazli_Savas_oyunu
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int BenimCan = 40;
+            int DusmanCan = 40;
+
+            int BenimAtak = 5;
+            int DusmanAtak = 7;
+            Random rndm = new Random();
+
+            Console.WriteLine("Kochisar Arena'ya Hos Geldiniz!! ");
+            
+            while (BenimCan>0 && DusmanCan>0)
+            {
+                Console.WriteLine("--Senin Siran--");
+                Console.WriteLine("Saldirmak icin 'a', Iyilesmek icin 'i' ye bas");
+                string cevap = Console.ReadLine();
+                if (cevap == "a")
+                {
+                    DusmanCan = DusmanCan - BenimAtak;
+                    Console.WriteLine("Dusmani yaraladin.");
+                }
+                if(cevap == "i")
+                {
+                    BenimCan = BenimCan + 5;
+                    Console.WriteLine("Bir Elma yedin.");
+                }
+                Console.WriteLine($"Guncel durum: Dusman {DusmanCan} HP, Sen {BenimCan} HP.");
+
+                if (DusmanCan > 0)
+                {
+                    Console.WriteLine("Sira rakipte....");
+                    int karar = rndm.Next(0, 2);
+                    if (karar == 0)
+                    {
+                        BenimCan = BenimCan - DusmanAtak;
+                        Console.WriteLine("Dusman Saldirdi.");
+                    }
+                    if (karar == 1)
+                    {
+                        DusmanCan = DusmanCan + 5;
+                        Console.WriteLine("Dusman Redbullundan bir yudum aldi.");
+                    }
+
+                    Console.WriteLine($"Guncel durum: Dusman {DusmanCan} HP, Sen {BenimCan} HP.");
+                }
+                
+            }
+            if (DusmanCan < BenimCan)
+            {
+                Console.WriteLine("Tebrikler Kazandiniz!!");
+            }
+            else
+            {
+                Console.WriteLine("Kaybettiniz, tekrar deneyin.");
+            }
+            Console.WriteLine("Bitirmek icin ENTER basin.");
+            Console.ReadLine();
+        }
+    }
+}
